@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f8f6f0" />
-    <meta name="description" content="和同学一起聆听、想象、创作自己的旋律。" />
-    <title>音芽 · 音乐创造课堂</title>
+    <meta name="theme-color" content="#f4f4f0" />
+    <meta name="description" content="豆芽AI：以创造性聆听、表演、即兴与创作为核心的音乐美育平台。" />
+    <title>豆芽AI · 音乐创造教育平台</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -14,100 +14,66 @@
     <script src="/app.js" defer></script>
   </head>
   <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <a class="brand" href="/" aria-label="音芽首页">
-          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-          <span>音芽<span class="brand-dot">.</span></span>
-          <span class="brand-divider"></span>
-          <span class="brand-subtitle">音乐创造课堂</span>
-        </a>
-        <div class="topbar-right"><span class="status-pill"><span class="status-dot"></span>创作空间已就绪</span></div>
+    <main id="home-screen" class="home-screen">
+      <div class="home-sheen sheen-one"></div><div class="home-sheen sheen-two"></div>
+      <header class="home-topbar">
+        <a class="logo-lockup" href="/" aria-label="豆芽AI首页"><span class="logo-seed"><i></i><i></i><i></i></span><span>豆芽<span class="logo-ai">AI</span></span></a>
+        <nav class="home-nav"><a href="#platform-blueprint">平台架构</a><a href="#login-panel">进入平台</a><span class="research-pill">课题研究平台</span></nav>
       </header>
 
-      <main id="entry-view" class="entry-view">
-        <section class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-line"></span>LISTEN · IMAGINE · CREATE</div>
-          <h1>每个人心里，<br />都有一段<span class="highlight">自己的旋律。</span></h1>
-          <p class="hero-description">在这里，让一个念头变成声音。和同学一起聆听、想象，创作属于自己的音乐故事。</p>
-          <div class="hero-notes" aria-hidden="true"><span>♪</span><span>♫</span><span>♩</span><span>♪</span><span>♬</span><span>♩</span><span>♫</span><span>♪</span><span>♩</span><span>♬</span><span>♪</span></div>
-          <div class="hero-caption"><span class="caption-rule"></span><span>一间让创意发芽的音乐教室</span><span class="caption-spark">✳</span></div>
-        </section>
-
-        <section class="entry-card" aria-label="进入音乐课堂">
-          <div class="card-heading">
-            <div><div class="card-kicker">欢迎来到音芽</div><h2>从一段旋律开始</h2></div>
-            <span class="card-icon" aria-hidden="true">♫</span>
-          </div>
-          <div class="role-tabs" role="tablist" aria-label="选择身份">
-            <button class="role-tab active" data-role="student" role="tab" aria-selected="true"><span>◎</span>我是学生</button>
-            <button class="role-tab" data-role="teacher" role="tab" aria-selected="false"><span>✳</span>我是老师</button>
-          </div>
-          <form id="student-form" class="entry-form">
-            <label class="field-label" for="join-code">班级码</label>
-            <div class="code-input-wrap"><span aria-hidden="true">⌑</span><input id="join-code" name="code" placeholder="输入老师分享的班级码" maxlength="6" autocomplete="one-time-code" required /></div>
-            <label class="field-label name-label" for="student-name">你的名字</label>
-            <input id="student-name" class="text-input" name="name" placeholder="怎么称呼你？" maxlength="20" required />
-            <button class="primary-button" type="submit">进入音乐课堂 <span>↗</span></button>
-            <p class="form-footnote"><span>✦</span> 和同学一起，把想象唱出来</p>
-          </form>
-          <form id="teacher-form" class="entry-form hidden">
-            <label class="field-label" for="teacher-name">老师称呼</label>
-            <input id="teacher-name" class="text-input" name="name" placeholder="例如：林老师" maxlength="20" required />
-            <label class="field-label name-label" for="class-title">今天的课堂主题</label>
-            <input id="class-title" class="text-input" name="title" placeholder="例如：给春天写一段旋律" maxlength="40" />
-            <button class="primary-button" type="submit">创建我的课堂 <span>↗</span></button>
-            <p class="form-footnote"><span>✦</span> 创建后会自动生成专属班级码</p>
-          </form>
-          <p id="entry-error" class="error-message" role="alert" aria-live="polite"></p>
-        </section>
-        <footer class="entry-footer"><span>© 2026 音芽音乐课堂</span><span>让每一个灵感，都有回响</span><span class="footer-flower">✳</span></footer>
-      </main>
-
-      <main id="class-view" class="class-view hidden">
-        <section class="class-heading">
-          <div class="class-heading-main"><button id="back-home" class="back-button" title="返回首页" aria-label="返回首页">←</button><div><div class="class-kicker">音乐创造课堂 <span class="live-chip"><i></i>正在进行</span></div><h1 id="class-title-display">旋律创作实验室</h1><p id="teacher-line" class="teacher-line"></p></div></div>
-          <div class="class-heading-actions"><div class="code-card"><span>班级码</span><strong id="class-code-display">······</strong><button id="copy-code" aria-label="复制班级码">复制</button></div><div class="online-card"><span class="online-icon">◉</span><strong id="online-count">1</strong><span>人在线</span></div></div>
-        </section>
-
-        <section class="welcome-banner">
-          <div class="welcome-icon" aria-hidden="true">♫</div>
-          <div class="welcome-copy"><span>今天的创作提醒</span><p>没有标准答案。先把脑海里的画面，变成一两个音符吧。</p></div>
-          <div class="welcome-decor" aria-hidden="true"><span>♪</span><span>♩</span><span>♫</span><span>♪</span><span>♬</span></div>
-        </section>
-
-        <div class="class-grid">
-          <section class="panel assignments-panel">
-            <div class="panel-heading"><div><span class="section-label">CLASSROOM</span><h2>课堂任务</h2></div><span id="task-count" class="count-badge">0 个任务</span></div>
-            <form id="assignment-form" class="assignment-composer hidden">
-              <label class="field-label" for="assignment-title">任务标题</label><input id="assignment-title" class="text-input" maxlength="80" placeholder="例如：给一场小雨谱曲" required />
-              <label class="field-label" for="assignment-description">创作提示</label><textarea id="assignment-description" class="text-input" maxlength="500" rows="3" placeholder="想象雨滴落在不同地方，用音高和节奏表现它们的声音……" required></textarea>
-              <button class="primary-button compact-button" type="submit">发布任务 <span>↗</span></button>
-            </form>
-            <div id="assignment-list" class="assignment-list"><div class="empty-state"><span class="empty-note">♫</span><strong>课堂还没有任务</strong><p>等老师发布第一个创作挑战吧。</p></div></div>
-          </section>
-
-          <section class="panel people-panel">
-            <div class="panel-heading"><div><span class="section-label">TOGETHER</span><h2>一起创作</h2></div><span class="people-spark">✳</span></div>
-            <button id="hand-button" class="hand-button hidden"><span>✋</span><span id="hand-button-label">举手发言</span></button>
-            <div class="people-subtitle"><span id="people-subtitle-label">举手的同学</span><span id="hand-count" class="count-badge">0</span></div>
-            <div id="hand-list" class="hand-list"><div class="quiet-state">还没有同学举手</div></div>
-            <div class="people-subtitle participants-title"><span>在线同学</span><span id="participant-count" class="count-badge">0</span></div>
-            <div id="participant-list" class="participant-list"></div>
-          </section>
-
-          <section class="panel assistant-panel">
-            <div class="assistant-heading"><div class="assistant-avatar"><span>✳</span></div><div><span class="section-label">YOUR CREATIVE PARTNER</span><h2>灵感小芽</h2></div><span class="assistant-online"><i></i>在线</span></div>
-            <p class="assistant-intro">把你的想法告诉我，我会陪你一步步找到旋律。</p>
-            <div class="prompt-chips"><button type="button" class="prompt-chip">我不知道怎么开始</button><button type="button" class="prompt-chip">给我一点旋律灵感</button></div>
-            <div id="chat-messages" class="chat-messages" aria-live="polite"><div class="chat-bubble bot-bubble">嗨！我是你的音乐创作伙伴。🎵<br />你想创作什么样的声音？一个心情、一幅画面，或者一个小故事都可以告诉我。</div></div>
-            <form id="chat-form" class="chat-form"><input id="chat-input" maxlength="300" placeholder="说说你的音乐灵感……" aria-label="输入音乐创作问题" required /><button type="submit" aria-label="发送消息">↑</button></form>
-            <p class="assistant-footnote">✦ 每个新点子，都值得被听见</p>
-          </section>
+      <section class="home-hero">
+        <div class="hero-topline"><span class="hero-orbit">✳</span><span>LISTEN · EXPLORE · CREATE</span><span class="hero-line"></span><span>面向中小学音乐课堂</span></div>
+        <p class="research-title">人工智能赋能青少年音乐创造力培养的机制剖析与模式探索 <span>（课题编号：JSJY2025015）</span></p>
+        <h1>让每一颗音乐灵感，<br /><em>都长成自己的旋律。</em></h1>
+        <p class="hero-lede">从听见、想象到即兴与创作。豆芽AI陪伴教师设计有依据的课堂，支持学生一步步把心里的声音变成作品。</p>
+        <div class="hero-path" aria-label="音乐创造学习路径">
+          <div class="path-item"><span class="path-note note-mint">耳</span><span><b>创造性聆听</b><small>听见音乐线索</small></span></div><span class="path-arrow">→</span>
+          <div class="path-item"><span class="path-note note-peach">声</span><span><b>创造性表演</b><small>回应与再表达</small></span></div><span class="path-arrow">→</span>
+          <div class="path-item"><span class="path-note note-blue">即</span><span><b>即兴编创</b><small>尝试声音变化</small></span></div><span class="path-arrow">→</span>
+          <div class="path-item"><span class="path-note note-lilac">作</span><span><b>音乐创作</b><small>保存个人作品</small></span></div>
         </div>
-        <footer class="class-footer"><span>音芽 · 让创意发芽</span><button id="leave-class" class="leave-button">离开课堂</button></footer>
-      </main>
-      <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    </div>
+      </section>
+
+      <section id="login-panel" class="login-panel" aria-label="登录豆芽AI">
+        <div class="login-intro"><div><span class="login-eyebrow">WELCOME TO DOUYA AI</span><h2>找到你的创作位置</h2><p>每种身份都有适合自己的音乐旅程。</p></div><div class="login-sparkle">✳</div></div>
+        <div class="role-picker" role="tablist" aria-label="选择登录身份">
+          <button type="button" class="role-choice active" data-role="student" role="tab" aria-selected="true"><span class="role-symbol student-symbol">♫</span><span><b>中小学生</b><small>探索 · 编创 · 分享</small></span><i>↗</i></button>
+          <button type="button" class="role-choice" data-role="teacher" role="tab" aria-selected="false"><span class="role-symbol teacher-symbol">✦</span><span><b>音乐教师</b><small>备课 · 教学 · 评价</small></span><i>↗</i></button>
+          <button type="button" class="role-choice" data-role="preservice" role="tab" aria-selected="false"><span class="role-symbol trainee-symbol">◌</span><span><b>职前教师</b><small>教研 · 试教 · 成长</small></span><i>↗</i></button>
+        </div>
+        <div class="auth-mode-row"><span id="auth-mode-hint">欢迎回来，继续你的音乐探索</span><button id="auth-mode-toggle" type="button">创建新账号 <span>→</span></button></div>
+        <form id="auth-form" class="auth-form">
+          <div id="register-name-wrap" class="form-field hidden"><label for="auth-name">怎么称呼你</label><input id="auth-name" name="name" placeholder="填写姓名或课堂昵称" maxlength="40" autocomplete="name" /></div>
+          <div class="form-field"><label for="auth-username">邮箱账号</label><input id="auth-username" name="username" type="email" placeholder="name@example.com" autocomplete="username" required /></div>
+          <div id="student-class-wrap" class="student-class-wrap">
+            <div class="form-field"><label for="auth-class">选择我的班级</label><select id="auth-class" name="classId"><option value="">先选择班级</option></select></div>
+            <div id="class-code-wrap" class="form-field class-code-field"><label for="auth-class-code">班级专属码</label><input id="auth-class-code" name="classCode" placeholder="由老师创建并分享" maxlength="6" autocomplete="off" /></div>
+            <p class="field-hint">这是班级长期使用的专属码。进入具体课程时，课堂会另生成一次性课堂码。</p>
+          </div>
+          <div class="form-field"><label for="auth-password">密码 <span id="password-hint">· 至少 10 位</span></label><input id="auth-password" name="password" type="password" placeholder="输入密码" minlength="10" autocomplete="current-password" required /></div>
+          <button class="auth-submit" type="submit"><span id="auth-submit-label">登录豆芽AI</span><span>↗</span></button>
+          <p id="auth-error" class="auth-error" role="alert" aria-live="polite"></p>
+        </form>
+        <div class="login-privacy"><span>◈</span> 密码加密保存 · 不设通用初始密码 · 可在账号设置中修改</div>
+      </section>
+
+      <section id="platform-blueprint" class="blueprint-preview">
+        <div class="preview-title"><span>一个有依据的创造闭环</span><a href="#login-panel">登录后查看完整平台蓝图 ↗</a></div>
+        <div class="preview-rail"><span>教材知识库</span><i>→</i><span>教师备课</span><i>→</i><span>课堂实践</span><i>→</i><span>作品与过程</span><i>→</i><span>成长建议</span></div>
+      </section>
+      <footer class="home-footer"><span>豆芽AI · 音乐创造教育平台</span><span>让创意有根，让表达自由</span><span>课题编号 JSJY2025015</span></footer>
+    </main>
+
+    <main id="portal-screen" class="portal-screen hidden"></main>
+    <dialog id="password-dialog" class="password-dialog">
+      <form id="password-form" method="dialog" class="password-card">
+        <button class="dialog-close" value="cancel" aria-label="关闭">×</button>
+        <span class="dialog-kicker">ACCOUNT SECURITY</span><h2>修改登录密码</h2>
+        <label>当前密码<input name="currentPassword" type="password" autocomplete="current-password" required /></label>
+        <label>新密码<input name="newPassword" type="password" minlength="10" autocomplete="new-password" required /></label>
+        <button class="auth-submit" value="default" type="submit">保存新密码 <span>↗</span></button><p id="password-error" class="auth-error"></p>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </body>
 </html>
