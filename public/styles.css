@@ -1,5 +1,5 @@
 :root {
-  font-family: "DM Sans", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   color: #28332e;
   background: #f4f4f0;
   font-synthesis: none;
@@ -15,7 +15,7 @@
   --peach: #f5ebe2;
   --blue: #e7eef2;
   --lilac: #eeeaf4;
-  --serif: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --serif: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
