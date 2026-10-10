@@ -3,62 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f4f0" />
-    <meta name="description" content="豆芽AI：以创造性聆听、表演、即兴与创作为核心的音乐美育平台。" />
-    <title>豆芽AI · 音乐创造教育平台</title>
+    <meta name="theme-color" content="#f7f8f5" />
+    <meta name="description" content="豆芽AI智能音乐创造教育平台，面向中小学音乐课堂，连接聆听、表演、即兴与创作。" />
+    <title>豆芽AI智能音乐创造教育平台</title>
     <link rel="stylesheet" href="/styles.css" />
     <script src="/socket.io/socket.io.js" defer></script>
     <script src="/app.js" defer></script>
   </head>
   <body>
-    <main id="home-screen" class="home-screen">
-      <div class="home-sheen sheen-one"></div><div class="home-sheen sheen-two"></div>
-      <header class="home-topbar">
-        <a class="logo-lockup" href="/" aria-label="豆芽AI首页"><span class="logo-seed"><i></i><i></i><i></i></span><span>豆芽<span class="logo-ai">AI</span></span></a>
-        <nav class="home-nav"><a href="#platform-blueprint">平台架构</a><a href="#login-panel">进入平台</a><span class="research-pill">课题研究平台</span></nav>
+    <main id="home-screen" class="landing-shell">
+      <header class="landing-nav">
+        <a class="landing-brand" href="/" aria-label="豆芽AI首页">
+          <span class="brand-mark"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 36V17"/><path d="M22 21C10 21 7 13 8 7c9 0 15 4 14 14Z"/><path d="M22 16C22 7 29 3 36 4c1 9-4 15-14 16Z"/><circle cx="22" cy="36" r="2"/></svg></span>
+          <span class="brand-words"><b>豆芽AI</b><small>智能音乐创造教育平台</small></span>
+        </a>
+        <nav class="landing-links"><a href="#creative-path">平台特色</a><a href="#research-info">课题介绍</a><a class="nav-login" href="#portal-entry">登录平台 <span>↗</span></a></nav>
       </header>
 
-      <section class="home-hero">
-        <div class="hero-topline"><span class="hero-orbit">✳</span><span>LISTEN · EXPLORE · CREATE</span><span class="hero-line"></span><span>面向中小学音乐课堂</span></div>
-        <p class="research-title">人工智能赋能青少年音乐创造力培养的机制剖析与模式探索 <span>（课题编号：JSJY2025015）</span></p>
-        <h1>让每一颗音乐灵感，<br /><em>都长成自己的旋律。</em></h1>
-        <p class="hero-lede">从听见、想象到即兴与创作。豆芽AI陪伴教师设计有依据的课堂，支持学生一步步把心里的声音变成作品。</p>
-        <div class="hero-path" aria-label="音乐创造学习路径">
-          <div class="path-item"><span class="path-note note-mint">耳</span><span><b>创造性聆听</b><small>听见音乐线索</small></span></div><span class="path-arrow">→</span>
-          <div class="path-item"><span class="path-note note-peach">声</span><span><b>创造性表演</b><small>回应与再表达</small></span></div><span class="path-arrow">→</span>
-          <div class="path-item"><span class="path-note note-blue">即</span><span><b>即兴编创</b><small>尝试声音变化</small></span></div><span class="path-arrow">→</span>
-          <div class="path-item"><span class="path-note note-lilac">作</span><span><b>音乐创作</b><small>保存个人作品</small></span></div>
+      <section class="landing-hero">
+        <div class="hero-copy">
+          <div class="hero-label"><span class="label-dot"></span> AI × MUSIC × CREATIVITY <i></i> 面向中小学音乐课堂</div>
+          <h1>让灵感发芽，<br /><em>让每一种声音被听见。</em></h1>
+          <p class="hero-description">以音乐为土壤，以创造为旅程。陪伴教师启发每一次探索，支持学生把心中的旋律，变成自己的作品。</p>
+          <div class="hero-actions"><a href="#portal-entry" class="hero-cta">开启音乐创造之旅 <span>→</span></a><span class="hero-caption">LISTEN · IMAGINE · CREATE</span></div>
+        </div>
+
+        <div class="hero-art" aria-label="豆芽AI音乐创造主题插画" role="img">
+          <div class="art-halo halo-a"></div><div class="art-halo halo-b"></div>
+          <svg class="soundscape" viewBox="0 0 1080 440" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <linearGradient id="waveMint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9ee8ca"/><stop offset=".52" stop-color="#69b8c1"/><stop offset="1" stop-color="#8d88e7"/></linearGradient>
+              <linearGradient id="waveGold" x1="0" y1="0" x2="1" y2=".5"><stop stop-color="#ffdc9c"/><stop offset=".55" stop-color="#f2a2b9"/><stop offset="1" stop-color="#aa9aef"/></linearGradient>
+              <radialGradient id="orb"><stop stop-color="#fff"/><stop offset=".55" stop-color="#d7f8ee"/><stop offset="1" stop-color="#9ddbcf" stop-opacity="0"/></radialGradient>
+              <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+            </defs>
+            <ellipse cx="540" cy="235" rx="310" ry="95" fill="#cdebe0" opacity=".35" filter="url(#blur)"/>
+            <path d="M-20 280C110 160 218 351 344 242s196-109 296-10 195 144 284 29 114-52 176-103" fill="none" stroke="url(#waveMint)" stroke-width="5" opacity=".45"/>
+            <path d="M-20 319C117 200 211 386 354 276s190-87 285 5 194 133 281 25 126-45 180-92" fill="none" stroke="url(#waveGold)" stroke-width="3" opacity=".7"/>
+            <path d="M-20 346C128 238 222 403 361 302s189-77 285 9 193 116 283 19 125-36 171-72" fill="none" stroke="#95cfc0" stroke-width="2" opacity=".42"/>
+            <circle cx="541" cy="206" r="133" fill="url(#orb)" opacity=".72"/>
+            <circle cx="541" cy="206" r="87" fill="none" stroke="#fff" stroke-width="1.5" opacity=".82"/>
+            <circle cx="541" cy="206" r="111" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="3 9" opacity=".65"/>
+            <path d="M507 215c14-19 32 19 47-1s27 2 39-10" fill="none" stroke="#628d85" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="505" cy="216" r="8" fill="#75ac9c"/><circle cx="555" cy="213" r="8" fill="#89a4d1"/><circle cx="594" cy="204" r="8" fill="#d395ac"/>
+            <g fill="#fff" opacity=".9"><circle cx="307" cy="139" r="4"/><circle cx="730" cy="112" r="5"/><circle cx="805" cy="272" r="3"/><circle cx="367" cy="295" r="3"/><circle cx="673" cy="307" r="4"/></g>
+            <g fill="#f0b879" opacity=".86"><path d="M275 204v-35l25-5v32a9 9 0 1 1-5-8v-15l-15 3v24a9 9 0 1 1-5-8Z"/><path d="M770 193v-29l22-5v27a8 8 0 1 1-5-7v-13l-12 3v20a8 8 0 1 1-5-7Z"/></g>
+          </svg>
+          <div class="art-card art-card-left"><span class="mini-orb">✦</span><span><b>灵感已点亮</b><small>试着改变最后一个音</small></span></div>
+          <div class="art-card art-card-right"><span class="sound-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span><b>一段旋律，正在生长</b><small>C · D · E · G · A</small></span></div>
+          <div class="art-note note-one">♪</div><div class="art-note note-two">♫</div><div class="art-note note-three">✧</div>
         </div>
       </section>
 
-      <section id="login-panel" class="login-panel" aria-label="登录豆芽AI">
-        <div class="login-intro"><div><span class="login-eyebrow">WELCOME TO DOUYA AI</span><h2>找到你的创作位置</h2><p>每种身份都有适合自己的音乐旅程。</p></div><div class="login-sparkle">✳</div></div>
-        <div class="role-picker" role="tablist" aria-label="选择登录身份">
-          <button type="button" class="role-choice active" data-role="student" role="tab" aria-selected="true"><span class="role-symbol student-symbol">♫</span><span><b>中小学生</b><small>探索 · 编创 · 分享</small></span><i>↗</i></button>
-          <button type="button" class="role-choice" data-role="teacher" role="tab" aria-selected="false"><span class="role-symbol teacher-symbol">✦</span><span><b>音乐教师</b><small>备课 · 教学 · 评价</small></span><i>↗</i></button>
-          <button type="button" class="role-choice" data-role="preservice" role="tab" aria-selected="false"><span class="role-symbol trainee-symbol">◌</span><span><b>职前教师</b><small>教研 · 试教 · 成长</small></span><i>↗</i></button>
+      <section id="portal-entry" class="portal-section">
+        <div class="portal-heading"><span class="section-overline">WELCOME TO DOUYA AI</span><h2>请选择你的学习入口</h2><p>为不同角色提供恰到好处的音乐创造体验</p></div>
+        <div class="portal-cards" role="tablist" aria-label="选择登录身份">
+          <button type="button" class="portal-card teacher-card" data-role="teacher" role="tab" aria-selected="false">
+            <span class="portal-card-icon teacher-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 39h30M14 34V12h20v22M19 19h10M19 24h10M19 29h6"/><path d="M34 10l5-4 4 5-5 4zM35 15l-5 3"/></svg></span>
+            <span class="portal-card-copy"><small>TEACHER PORTAL</small><b>我是教师</b><i>备课 · 教学 · 评价</i></span><span class="portal-arrow">进入教师端 <b>↗</b></span>
+          </button>
+          <button type="button" class="portal-card student-card active" data-role="student" role="tab" aria-selected="true">
+            <span class="portal-card-icon student-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M27 9v22.5a7 7 0 1 1-4-6.3V14l17-4v17.5a7 7 0 1 1-4-6.3V6z"/><path d="M11 36c2 2 5 3 8 3"/></svg></span>
+            <span class="portal-card-copy"><small>STUDENT PORTAL</small><b>我是学生</b><i>聆听 · 编创 · 分享</i></span><span class="portal-arrow">进入学生端 <b>↗</b></span>
+          </button>
         </div>
-        <div class="auth-mode-row"><span id="auth-mode-hint">欢迎回来，继续你的音乐探索</span><button id="auth-mode-toggle" type="button">创建新账号 <span>→</span></button></div>
-        <form id="auth-form" class="auth-form">
+      </section>
+
+      <section id="login-panel" class="landing-auth" aria-label="账号登录">
+        <div class="auth-heading"><span class="auth-emblem">♫</span><div><span class="section-overline">SECURE SIGN IN</span><h2 id="auth-mode-hint">欢迎回来，继续你的音乐探索</h2></div><button id="auth-mode-toggle" type="button">创建新账号 <span>→</span></button></div>
+        <form id="auth-form" class="landing-auth-form">
           <div id="register-name-wrap" class="form-field hidden"><label for="auth-name">怎么称呼你</label><input id="auth-name" name="name" placeholder="填写姓名或课堂昵称" maxlength="40" autocomplete="name" /></div>
           <div class="form-field"><label for="auth-username">邮箱账号</label><input id="auth-username" name="username" type="email" placeholder="name@example.com" autocomplete="username" required /></div>
-          <div id="student-class-wrap" class="student-class-wrap">
-            <div class="form-field"><label for="auth-class">选择我的班级</label><select id="auth-class" name="classId"><option value="">先选择班级</option></select></div>
-            <div id="class-code-wrap" class="form-field class-code-field"><label for="auth-class-code">班级专属码</label><input id="auth-class-code" name="classCode" placeholder="由老师创建并分享" maxlength="6" autocomplete="off" /></div>
-            <p class="field-hint">这是班级长期使用的专属码。进入具体课程时，课堂会另生成一次性课堂码。</p>
-          </div>
+          <div id="student-class-wrap" class="student-class-wrap"><div class="form-field"><label for="auth-class">选择我的班级</label><select id="auth-class" name="classId"><option value="">先选择班级</option></select></div><div id="class-code-wrap" class="form-field class-code-field"><label for="auth-class-code">班级专属码</label><input id="auth-class-code" name="classCode" placeholder="由老师创建并分享" maxlength="6" autocomplete="off" /></div><p class="field-hint">选择班级后，输入老师提供的班级专属码</p></div>
           <div class="form-field"><label for="auth-password">密码 <span id="password-hint">· 至少 10 位</span></label><input id="auth-password" name="password" type="password" placeholder="输入密码" minlength="10" autocomplete="current-password" required /></div>
-          <button class="auth-submit" type="submit"><span id="auth-submit-label">登录豆芽AI</span><span>↗</span></button>
-          <p id="auth-error" class="auth-error" role="alert" aria-live="polite"></p>
+          <button class="auth-submit" type="submit"><span id="auth-submit-label">登录豆芽AI</span><span>↗</span></button><p id="auth-error" class="auth-error" role="alert" aria-live="polite"></p>
         </form>
-        <div class="login-privacy"><span>◈</span> 密码加密保存 · 不设通用初始密码 · 可在账号设置中修改</div>
+        <div class="auth-assurance"><span>◈</span> 账号安全加密保护 <i></i> 初次使用可创建账号</div>
       </section>
 
-      <section id="platform-blueprint" class="blueprint-preview">
-        <div class="preview-title"><span>一个有依据的创造闭环</span><a href="#login-panel">登录后查看完整平台蓝图 ↗</a></div>
-        <div class="preview-rail"><span>教材知识库</span><i>→</i><span>教师备课</span><i>→</i><span>课堂实践</span><i>→</i><span>作品与过程</span><i>→</i><span>成长建议</span></div>
+      <section id="creative-path" class="creative-path">
+        <div class="path-heading"><span class="section-overline">A CREATIVE JOURNEY</span><h2>让音乐学习，成为创造的旅程</h2></div>
+        <div class="journey-grid">
+          <article class="journey-card journey-listen"><span class="journey-icon">耳</span><small>01 · LISTEN</small><h3>创造性聆听</h3><p>发现节奏、音色与旋律里的灵感线索</p></article>
+          <article class="journey-card journey-perform"><span class="journey-icon">声</span><small>02 · PERFORM</small><h3>创造性表演</h3><p>用自己的方式回应音乐、表达感受</p></article>
+          <article class="journey-card journey-improv"><span class="journey-icon">即</span><small>03 · IMPROVISE</small><h3>即兴编创</h3><p>从一个节奏或动机开始自由尝试</p></article>
+          <article class="journey-card journey-compose"><span class="journey-icon">作</span><small>04 · COMPOSE</small><h3>音乐创作</h3><p>把零散音符整理成自己的作品</p></article>
+        </div>
       </section>
-      <footer class="home-footer"><span>豆芽AI · 音乐创造教育平台</span><span>让创意有根，让表达自由</span><span>课题编号 JSJY2025015</span></footer>
+
+      <section id="research-info" class="research-banner"><div><span class="section-overline">RESEARCH PROJECT</span><h2>人工智能赋能青少年音乐创造力培养的机制剖析与模式探索</h2><p>以学生创造力发展为核心，探索人工智能与学校音乐教育融合的实践路径。</p></div><span class="project-number">课题编号<b>JSJY2025015</b></span></section>
+      <footer class="landing-footer"><a class="landing-brand footer-brand" href="/"><span class="brand-mark"><svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 36V17"/><path d="M22 21C10 21 7 13 8 7c9 0 15 4 14 14Z"/><path d="M22 16C22 7 29 3 36 4c1 9-4 15-14 16Z"/><circle cx="22" cy="36" r="2"/></svg></span><span class="brand-words"><b>豆芽AI</b><small>智能音乐创造教育平台</small></span></a><span>让创意有根，让表达自由</span><span>© 豆芽AI · JSJY2025015</span></footer>
     </main>
 
     <main id="portal-screen" class="portal-screen hidden"></main>

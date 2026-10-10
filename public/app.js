@@ -48,7 +48,7 @@ function initials(name) { return escapeHTML((name || '芽').slice(0, 1)); }
 
 function setEntryRole(role) {
   state.role = role;
-  $$('.role-choice').forEach((button) => {
+  $$('.portal-card').forEach((button) => {
     const active = button.dataset.role === role;
     button.classList.toggle('active', active);
     button.setAttribute('aria-selected', String(active));
@@ -67,7 +67,7 @@ function updateAuthForm() {
   $('#class-code-wrap').classList.toggle('hidden', !registering || !student);
   $('#auth-password').autocomplete = registering ? 'new-password' : 'current-password';
   $('#password-hint').textContent = registering ? '· 至少 10 位，设为自己的初始密码' : '';
-  $('#auth-mode-hint').textContent = registering ? `创建${roleNames[state.role]}账号` : `欢迎回来，继续你的音乐探索`;
+  $('#auth-mode-hint').textContent = registering ? `创建${roleNames[state.role]}账号` : `${roleNames[state.role]}登录 · 欢迎回来`;
   $('#auth-submit-label').textContent = registering ? '创建账号并进入' : '登录豆芽AI';
   $('#auth-mode-toggle').innerHTML = registering ? '返回账号登录 <span>→</span>' : '创建新账号 <span>→</span>';
   $('#auth-error').textContent = '';
@@ -812,8 +812,12 @@ socket.on('session:update', (session) => {
 });
 socket.on('session:ended', () => { state.live = null; sessionStorage.removeItem('douyai-session'); showToast('本节课堂已结束。'); if (state.view === 'classroom') navigate('classroom'); });
 
-$('.role-picker').addEventListener('click', (event) => {
-  const button = event.target.closest('[data-role]'); if (button) setEntryRole(button.dataset.role);
+$('.portal-cards').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-role]');
+  if (button) {
+    setEntryRole(button.dataset.role);
+    $('#login-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 });
 $('#auth-mode-toggle').addEventListener('click', () => { state.mode = state.mode === 'login' ? 'register' : 'login'; updateAuthForm(); });
 $('#password-form').addEventListener('submit', (event) => {
